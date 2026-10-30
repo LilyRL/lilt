@@ -29,6 +29,7 @@
 (require 'cl-lib)
 (require 'seq)
 (require 'subr-x)
+(require 'dash)
 
 (defgroup lilt nil "Emacs music player." :group 'multimedia)
 
@@ -299,6 +300,7 @@
 
 (defun lilt-run ()
   "Open Lilt, refreshing connection if present."
+  (interactive)
   (lilt--connect)
   (let ((buffer-name "*lilt*"))
     (vui-mount (vui-component 'lilt--album-list) buffer-name)
